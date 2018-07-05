@@ -1,0 +1,173 @@
+---
+title: "qplot and wrap-up"
+author: "Maren Westermann"
+output: html_document
+---
+
+#### Load the ggplot2 package
+```{r}
+library(ggplot2)
+```
+
+
+## Using qplot
+
+#### The old way (shown)
+```{r  out.width = "50%"}
+plot(mpg ~ wt, data = mtcars) # formula notation
+with(mtcars, plot(wt, mpg)) # x, y notation
+```
+
+#### Using ggplot:
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point()
+```
+
+#### Using qplot:
+```{r  out.width = "50%"}
+qplot(wt, mpg, data = mtcars)
+```
+
+
+## Using aesthetics
+
+#### Categorical variable mapped onto size:
+#### cyl
+```{r  out.width = "50%"}
+qplot(wt, mpg, data = mtcars, size = factor(cyl))
+```
+
+#### gear
+```{r  out.width = "50%"}
+qplot(wt, mpg, data = mtcars, size = factor(gear))
+```
+
+#### Continuous variable mapped onto col:
+#### hp
+```{r  out.width = "50%"}
+qplot(wt, mpg, data = mtcars, col = hp)
+```
+
+#### qsec
+```{r  out.width = "50%"}
+qplot(wt, mpg, data = mtcars, color = qsec)
+```
+
+
+## Choosing geoms 
+
+#### qplot() with x only
+```{r  out.width = "50%"}
+qplot(factor(cyl), data = mtcars)
+```
+
+#### qplot() with x and y
+```{r  out.width = "50%"}
+qplot(factor(cyl), factor(vs), data = mtcars)
+```
+
+#### qplot() with geom set to jitter manually
+```{r  out.width = "50%"}
+qplot(factor(cyl), factor(vs), data = mtcars, geom = "jitter")
+```
+
+
+#### "Basic" dot plot, with geom_point():
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(factor(cyl), wt, col = factor(am))) +
+  geom_point(position = position_jitter(0.2, 0))
+```
+
+#### "True" dot plot, with geom_dotplot():
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(factor(cyl), wt, fill = factor(am))) +
+  geom_dotplot(binaxis = "y", stackdir = "center")
+```
+
+#### qplot with geom "dotplot", binaxis = "y" and stackdir = "center"
+```{r  out.width = "50%"}
+qplot(
+  factor(cyl), wt,
+  data = mtcars,
+  fill = factor(am),
+  geom = "dotplot",
+  binaxis = "y",
+  stackdir = "center"
+)
+```
+
+
+## Chicken weight 
+
+#### Check out the head of ChickWeight
+```{r}
+head(ChickWeight)
+```
+
+#### Basic line plot
+```{r  out.width = "50%"}
+ggplot(ChickWeight, aes(x = Time, y = weight)) +
+  geom_line(aes(group = Chick))
+```
+
+#### Take plot 2, map Diet onto col.
+```{r  out.width = "50%"}
+ggplot(ChickWeight, aes(x = Time, y = weight, color = Diet)) +
+  geom_line(aes(group = Chick))
+```
+
+#### Take plot 3, add geom_smooth()
+```{r  out.width = "50%"}
+ggplot(ChickWeight, aes(x = Time, y = weight, color = Diet)) +
+  geom_line(aes(group = Chick, alpha = 0.3)) + 
+  geom_smooth(lwd = 2, se = F)
+```
+
+
+## Titanic 
+
+#### Load the readr package
+```{r}
+library(readr)
+```
+
+#### Load the titanic dataset
+```{r}
+titanic <- read_delim("../titanic.txt", delim = "/")
+```
+
+#### Change Sex inside titanic to a factor
+```{r}
+titanic$Sex <- as.factor(titanic$Sex)
+```
+
+#### Check the structure of titanic
+```{r}
+str(titanic)
+```
+
+#### Use ggplot() for the first instruction
+```{r  out.width = "50%"}
+ggplot(titanic, aes(x = Pclass, fill = Sex)) +
+  geom_bar(position = "dodge")
+```
+
+#### Plot 2, add facet_grid() layer
+```{r  out.width = "50%"}
+ggplot(titanic, aes(x = Pclass, fill = Sex)) +
+  geom_bar(position = "dodge") + 
+  facet_grid(. ~ Survived)
+```
+
+#### Define an object for position jitterdodge, to use below
+```{r}
+posn.jd <- position_jitterdodge(0.5, 0, 0.6)
+```
+
+#### Plot 3, but use the position object from instruction 4
+```{r  out.width = "50%"}
+ggplot(titanic, aes(x = Pclass, y = Age, col = Sex)) +
+  geom_point(position = posn.jd, size = 3, alpha = 0.5) + 
+  facet_grid(. ~ Survived)
+```

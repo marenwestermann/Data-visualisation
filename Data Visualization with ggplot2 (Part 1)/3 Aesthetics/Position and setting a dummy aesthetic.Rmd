@@ -1,0 +1,62 @@
+---
+title: "Position and setting a dummy aesthetic"
+author: "Maren Westermann"
+output: html_document
+---
+
+#### Load the ggplot2 package
+```{r}
+library(ggplot2)
+```
+
+## Position
+#### Base layer 
+```{r}
+cyl.am <- ggplot(mtcars, aes(x = factor(cyl), fill = factor(am)))
+```
+
+#### Add geom (position = "stack" by default)
+```{r  out.width = "50%"}
+cyl.am + 
+  geom_bar()
+```
+
+#### Fill - show proportion
+```{r  out.width = "50%"}
+cyl.am + 
+  geom_bar(position = "fill")
+```
+
+#### Dodging - principles of similarity and proximity
+```{r  out.width = "50%"}
+cyl.am +
+  geom_bar(position = "dodge") 
+```
+
+#### Clean up the axes with scale_ functions
+```{r  out.width = "50%"}
+val = c("#E41A1C", "#377EB8")
+lab = c("Manual", "Automatic")
+cyl.am +
+  geom_bar(position = "dodge") +
+  scale_x_discrete("Cylinders") + 
+  scale_y_continuous("Number") +
+  scale_fill_manual("Transmission", 
+                    values = val,
+                    labels = lab)
+```
+
+
+## Setting a dummy aesthetic
+#### Create jittered plot of mtcars, mpg onto x, 0 onto y
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(x = mpg, y = 0)) +
+  geom_jitter()
+```
+
+#### Add function to change y axis limits
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(x = mpg, y = 0)) +
+  geom_jitter() + 
+  scale_y_continuous(limits = c(-2,2))
+```

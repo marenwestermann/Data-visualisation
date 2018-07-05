@@ -1,0 +1,59 @@
+---
+title: "Overplotting"
+author: "Maren Westermann"
+output: html_document
+---
+
+#### Load the ggplot2 package
+```{r}
+library(ggplot2)
+```
+
+#### Change cyl inside mtcars to a factor
+```{r}
+mtcars$cyl <- as.factor(mtcars$cyl)
+```
+
+#### Basic scatter plot: wt on x-axis and mpg on y-axis; map cyl to col
+```{r out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl)) + 
+  geom_point(size = 4)
+```
+
+
+#### Hollow circles - an improvement
+```{r out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl)) + 
+  geom_point(size = 4, shape = 1)
+```
+
+#### Add transparency - very nice
+```{r out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl)) + 
+  geom_point(size = 4, alpha = 0.6)
+```
+
+
+#### Scatter plot: carat (x), price (y), clarity (color)
+```{r out.width = "50%"}
+ggplot(diamonds, aes(x = carat, y = price, col = clarity)) + 
+  geom_point()
+```
+
+#### Adjust for overplotting
+```{r out.width = "50%"}
+ggplot(diamonds, aes(x = carat, y = price, col = clarity)) + 
+  geom_point(alpha = 0.5)
+```
+
+#### Scatter plot: clarity (x), carat (y), price (color)
+```{r out.width = "50%"}
+ggplot(diamonds, aes(x = clarity, y = carat, col = price)) + 
+  geom_point(alpha = 0.5)
+```
+
+#### Dot plot with jittering
+```{r out.width = "50%"}
+ggplot(diamonds, aes(x = clarity, y = carat, col = price)) + 
+  geom_point(position = "jitter", alpha = 0.5)
+```
