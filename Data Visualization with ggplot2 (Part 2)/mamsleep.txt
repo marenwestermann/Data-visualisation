@@ -1,0 +1,113 @@
+number/vore/name/sleep/time
+1/omni/Owl monkey/total/17.0
+2/herbi/Mountain beaver/total/14.4
+3/omni/Greater short-tailed shrew/total/14.9
+4/herbi/cow/total/4.0
+5/herbi/Three-toed sloth/total/14.4
+6/carni/Northern fur seal/total/8.7
+7/carni/Dog/total/10.1
+8/herbi/Goat/total/5.3
+9/herbi/Guinea pig/total/9.4
+10/omni/Grivet/total/10.0
+11/herbi/Chinchilla/total/12.5
+12/omni/Star-nosed mole/total/10.3
+13/omni/African giant pouched rat/total/8.3
+14/omni/Lesser short-tailed shrew/total/9.1
+15/carni/Long-nosed armadillo/total/17.4
+16/herbi/Tree hyrax/total/5.3
+17/omni/North American Opossum/total/18.0
+18/insecti/Big brown bat/total/19.7
+19/herbi/horse/total/2.9
+20/herbi/Donkey/total/3.1
+21/omni/European hedgehog/total/10.1
+22/omni/Patas monkey/total/10.9
+23/carni/Domestic cat/total/12.5
+24/omni/Galago/total/9.8
+25/herbi/Giraffe/total/1.9
+26/carni/Pilot whale/total/2.7
+27/carni/Gray seal/total/6.2
+28/herbi/Gray hyrax/total/6.3
+29/omni/human/total/8.0
+30/herbi/Mongoose lemur/total/9.5
+31/carni/Thick-tailed opposum/total/19.4
+32/omni/Macaque/total/10.1
+33/herbi/Mongolian gerbil/total/14.2
+34/herbi/Golden hamster/total/14.3
+35/herbi/house mouse/total/12.5
+36/insecti/Little brown bat/total/19.9
+37/herbi/Degu/total/7.7
+38/herbi/Rabbit/total/8.4
+39/herbi/Sheep/total/3.8
+40/omni/Chimpanzee/total/9.7
+41/omni/Baboon/total/9.4
+42/carni/caspian seal/total/3.5
+43/herbi/Potoroo/total/11.1
+44/insecti/Giant armadillo/total/18.1
+45/herbi/Laboratory rat/total/13.0
+46/omni/Squirrel monkey/total/9.6
+47/insecti/ Eastern american mole/total/8.4
+48/herbi/Cotton rat/total/11.3
+49/herbi/Thirteen-lined ground squirrel/total/13.8
+50/herbi/Golden-mantled ground squirrel/total/15.9
+51/omni/Pig/total/9.1
+52/herbi/Brazilian tapir/total/4.4
+53/omni/Tenrec/total/15.6
+54/omni/Tree shrew/total/8.9
+55/carni/Genet/total/6.3
+56/carni/Red fox/total/9.8
+57/omni/Owl monkey/rem/1.8
+58/herbi/Mountain beaver/rem/2.4
+59/omni/Greater short-tailed shrew/rem/2.3
+60/herbi/cow/rem/0.7
+61/herbi/Three-toed sloth/rem/2.2
+62/carni/Northern fur seal/rem/1.4
+63/carni/Dog/rem/2.9
+64/herbi/Goat/rem/0.6
+65/herbi/Guinea pig/rem/0.8
+66/omni/Grivet/rem/0.7
+67/herbi/Chinchilla/rem/1.5
+68/omni/Star-nosed mole/rem/2.2
+69/omni/African giant pouched rat/rem/2.0
+70/omni/Lesser short-tailed shrew/rem/1.4
+71/carni/Long-nosed armadillo/rem/3.1
+72/herbi/Tree hyrax/rem/0.5
+73/omni/North American Opossum/rem/4.9
+74/insecti/Big brown bat/rem/3.9
+75/herbi/horse/rem/0.6
+76/herbi/Donkey/rem/0.4
+77/omni/European hedgehog/rem/3.5
+78/omni/Patas monkey/rem/1.1
+79/carni/Domestic cat/rem/3.2
+80/omni/Galago/rem/1.1
+81/herbi/Giraffe/rem/0.4
+82/carni/Pilot whale/rem/0.1
+83/carni/Gray seal/rem/1.5
+84/herbi/Gray hyrax/rem/0.6
+85/omni/human/rem/1.9
+86/herbi/Mongoose lemur/rem/0.9
+87/carni/Thick-tailed opposum/rem/6.6
+88/omni/Macaque/rem/1.2
+89/herbi/Mongolian gerbil/rem/1.9
+90/herbi/Golden hamster/rem/3.1
+91/herbi/house mouse/rem/1.4
+92/insecti/Little brown bat/rem/2.0
+93/herbi/Degu/rem/0.9
+94/herbi/Rabbit/rem/0.9
+95/herbi/Sheep/rem/0.6
+96/omni/Chimpanzee/rem/1.4
+97/omni/Baboon/rem/1.0
+98/carni/caspian seal/rem/0.4
+99/herbi/Potoroo/rem/1.5
+100/insecti/Giant armadillo/rem/6.1
+101/herbi/Laboratory rat/rem/2.4
+102/omni/Squirrel monkey/rem/1.4
+103/insecti/Eastern american mole/rem/2.1
+104/herbi/Cotton rat/rem/1.1
+105/herbi/Thirteen-lined ground squirrel/rem/3.4
+106/herbi/Golden-mantled ground squirrel/rem/3.0
+107/omni/Pig/rem/2.4
+108/herbi/Brazilian tapir/rem/1.0
+109/omni/Tenrec/rem/2.3
+110/omni/Tree shrew/rem/2.6
+111/carni/Genet/rem/1.3
+112/carni/Red fox/rem/2.4

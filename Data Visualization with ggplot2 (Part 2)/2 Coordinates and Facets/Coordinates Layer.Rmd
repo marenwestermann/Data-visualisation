@@ -1,0 +1,74 @@
+---
+title: "Coordinates Layer"
+author: "Maren Westermann"
+output: html_document
+---
+
+#### Load the ggplot2 package
+```{r}
+library(ggplot2)
+```
+
+
+## Zooming in 
+
+#### Basic ggplot() command, coded for you
+```{r}
+p <- ggplot(mtcars, aes(x = wt, y = hp, col = factor(am))) + 
+  geom_point() + geom_smooth()
+```
+
+#### Add scale_x_continuous
+```{r  out.width = "50%"}
+p + scale_x_continuous(limits = c(3,6), expand = c(0,0))
+```
+
+#### The proper way to zoom in:
+```{r  out.width = "50%"}
+p + coord_cartesian(xlim = c(3,6))
+```
+
+
+## Aspect ratio
+
+#### Complete basic scatter plot function
+```{r}
+base.plot <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, col = Species)) +
+  geom_jitter() +
+  geom_smooth(method = "lm", se = F)
+```
+
+#### Plot base.plot: default aspect ratio
+```{r  out.width = "50%"}
+base.plot
+```
+
+#### Fix aspect ratio (1:1) of base.plot
+```{r  out.width = "50%"}
+base.plot + coord_equal()
+```
+
+
+## Pie charts 
+
+#### Create stacked bar plot: thin.bar
+```{r}
+thin.bar <- ggplot(mtcars, aes(x = 1, fill = factor(cyl))) +
+  geom_bar()
+```
+
+#### Convert thin.bar to pie chart
+```{r  out.width = "50%"}
+thin.bar + coord_polar(theta = "y")
+```
+
+#### Create stacked bar plot: wide.bar
+```{r}
+wide.bar <- ggplot(mtcars, aes(x = 1, fill = factor(cyl))) +
+  geom_bar(width = 1)
+```
+
+#### Convert wide.bar to pie chart
+```{r  out.width = "50%"}
+wide.bar + coord_polar(theta = "y")
+```

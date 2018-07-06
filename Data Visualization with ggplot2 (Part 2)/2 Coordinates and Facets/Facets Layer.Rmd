@@ -1,0 +1,106 @@
+---
+title: "Facets Layer"
+author: "Maren Westermann"
+output: html_document
+---
+
+#### Load the ggplot2 package
+```{r}
+library(ggplot2)
+```
+
+
+## Facets: the basics 
+
+#### Basic scatter plot
+```{r}
+p <- ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
+```
+
+#### Separate rows according to transmission type, am
+```{r  out.width = "50%"}
+p + facet_grid(. ~ am)
+```
+
+#### Separate columns according to cylinders, cyl
+```{r  out.width = "50%"}
+p + facet_grid(cyl ~ .)
+```
+
+#### Separate by both columns and rows 
+```{r  out.width = "50%"}
+p + facet_grid(cyl ~ am)
+```
+
+
+## Many variables 
+
+#### Load the RColorBrewer package
+```{r}
+library(RColorBrewer) 
+```
+
+#### Code to create the cyl_am col and myCol vector
+```{r}
+mtcars$cyl_am <- paste(mtcars$cyl, mtcars$am, sep = "_")
+myCol <- rbind(brewer.pal(9, "Blues")[c(3,6,8)],
+               brewer.pal(9, "Reds")[c(3,6,8)])
+```
+
+#### Basic scatter plot, add color to scale: 
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl_am)) +
+  geom_point() +
+  scale_color_manual(values = myCol)
+```
+
+#### Facet according on rows and columns. 
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl_am)) +
+  geom_point() +
+  scale_color_manual(values = myCol) + 
+  facet_grid(gear ~ vs)
+```
+
+#### Add more variables 
+```{r  out.width = "50%"}
+ggplot(mtcars, aes(x = wt, y = mpg, col = cyl_am, size = disp)) +
+  geom_point() +
+  scale_color_manual(values = myCol) + 
+  facet_grid(gear ~ vs)
+```
+
+
+## Dropping levels 
+
+#### Load the readr package
+```{r}
+library(readr)
+```
+
+#### Load the mamsleep dataset
+```{r}
+mamsleep <- read_delim("../mamsleep.txt", delim = "/")
+```
+
+#### Basic scatter plot
+```{r  out.width = "50%"}
+ggplot(mamsleep, aes(x = time, y = name, col = sleep)) + 
+  geom_point()
+```
+
+#### Facet rows accoding to vore
+```{r  out.width = "50%"}
+ggplot(mamsleep, aes(x = time, y = name, col = sleep)) + 
+  geom_point() + 
+  facet_grid(vore ~ .)
+```
+
+#### Specify scale and space arguments to free up rows
+```{r  out.width = "50%"}
+ggplot(mamsleep, aes(x = time, y = name, col = sleep)) + 
+  geom_point() + 
+  facet_grid(vore ~ ., scale = "free_y", space = "free_y")
+```
+
